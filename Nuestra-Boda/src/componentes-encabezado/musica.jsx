@@ -9,7 +9,6 @@ import {
   Volume2,
   VolumeX,
   X,
-  ChevronDown,
   Music2,
 } from "lucide-react";
 
@@ -39,7 +38,7 @@ const formatearTiempo = (segundos) => {
 };
 
 // ==========================================
-// REPRODUCTOR CLÁSICO
+// REPRODUCTOR RESPONSIVO
 // ==========================================
 
 function Reproductor({
@@ -61,15 +60,18 @@ function Reproductor({
   return (
     <div
       className="
-        relative w-full max-w-[380px]
+        relative w-full
+        max-w-[350px]
+        shrink-0
         overflow-hidden
-        rounded-[8px]
+        rounded-lg
         border border-[#B8B8A4]
         bg-[#F8F6EF]
-        px-5 py-6
+        px-4 py-3
         text-center
-        shadow-[0_20px_55px_rgba(20,30,15,0.2)]
-        sm:px-8 sm:py-8
+        shadow-[0_15px_45px_rgba(20,30,15,0.2)]
+        sm:max-w-[380px]
+        sm:px-8 sm:py-7
       "
     >
       {/* MARCO INTERIOR */}
@@ -77,7 +79,7 @@ function Reproductor({
         aria-hidden="true"
         className="
           pointer-events-none
-          absolute inset-[7px]
+          absolute inset-[6px]
           border border-[#8C947C]/25
         "
       />
@@ -85,10 +87,11 @@ function Reproductor({
       {/* ENCABEZADO */}
       <p
         className="
-          relative z-10 mb-2
-          font-serif text-[10px]
-          uppercase tracking-[0.28em]
+          relative z-10
+          font-serif text-[9px]
+          uppercase tracking-[0.22em]
           text-[#697455]
+          sm:text-[10px]
         "
       >
         Una melodía especial
@@ -97,8 +100,11 @@ function Reproductor({
       <h2
         className="
           relative z-10
-          font-serif text-[25px]
+          mt-1
+          font-serif
+          text-[21px]
           font-normal italic
+          leading-tight
           text-[#414B32]
           sm:text-[29px]
         "
@@ -106,28 +112,31 @@ function Reproductor({
         Nuestra canción
       </h2>
 
+      {/* SEPARADOR */}
       <div
         className="
-          mx-auto mb-5 mt-3
-          flex items-center justify-center gap-2
+          mx-auto my-2
+          flex items-center
+          justify-center gap-2
+          sm:my-4
         "
       >
-        <span className="h-px w-10 bg-[#A2AA92]" />
-        <span className="text-[13px] text-[#697455]">✦</span>
-        <span className="h-px w-10 bg-[#A2AA92]" />
+        <span className="h-px w-9 bg-[#A2AA92]" />
+        <span className="text-xs text-[#697455]">✦</span>
+        <span className="h-px w-9 bg-[#A2AA92]" />
       </div>
 
       {/* ======================================
-          DISCO DE VINILO GIRATORIO
+          VINILO ADAPTABLE A LA ALTURA
       ====================================== */}
 
       <div
         className="
-          relative mx-auto mb-6
-          h-[170px] w-[170px]
-          min-[380px]:h-[195px]
-          min-[380px]:w-[195px]
-          sm:h-[215px] sm:w-[215px]
+          relative mx-auto mb-3
+          aspect-square
+          w-[clamp(95px,18dvh,155px)]
+          sm:mb-5
+          sm:w-[200px]
         "
       >
         <div
@@ -136,7 +145,7 @@ function Reproductor({
             relative h-full w-full
             rounded-full
             bg-[#283222]
-            shadow-[0_12px_25px_rgba(0,0,0,0.22)]
+            shadow-[0_10px_25px_rgba(0,0,0,0.22)]
           "
           style={{
             animationPlayState: reproduciendo
@@ -144,18 +153,17 @@ function Reproductor({
               : "paused",
           }}
         >
-          {/* SURCOS DEL VINILO */}
-          <div className="absolute inset-[9px] rounded-full border border-white/10" />
-          <div className="absolute inset-[18px] rounded-full border border-white/10" />
-          <div className="absolute inset-[28px] rounded-full border border-white/10" />
-          <div className="absolute inset-[39px] rounded-full border border-white/10" />
+          {/* SURCOS */}
+          <div className="absolute inset-[5%] rounded-full border border-white/10" />
+          <div className="absolute inset-[11%] rounded-full border border-white/10" />
+          <div className="absolute inset-[17%] rounded-full border border-white/10" />
+          <div className="absolute inset-[24%] rounded-full border border-white/10" />
 
-          {/* REFLEJO SUTIL */}
+          {/* REFLEJO */}
           <div
             className="
               pointer-events-none
-              absolute inset-0
-              rounded-full
+              absolute inset-0 rounded-full
             "
             style={{
               background:
@@ -163,19 +171,16 @@ function Reproductor({
             }}
           />
 
-          {/* FOTOGRAFÍA CENTRAL */}
+          {/* FOTO CENTRAL */}
           <div
             className="
               absolute left-1/2 top-1/2
-              flex h-[88px] w-[88px]
+              flex h-[51%] w-[51%]
               -translate-x-1/2 -translate-y-1/2
               items-center justify-center
               overflow-hidden rounded-full
-              border-[5px] border-[#D9D9C6]
+              border-[4px] border-[#D9D9C6]
               bg-[#879273]
-              min-[380px]:h-[100px]
-              min-[380px]:w-[100px]
-              sm:h-[110px] sm:w-[110px]
             "
           >
             <img
@@ -188,14 +193,13 @@ function Reproductor({
             />
           </div>
 
-          {/* CENTRO DEL DISCO */}
+          {/* CENTRO */}
           <span
             className="
               absolute left-1/2 top-1/2
-              z-10 h-[7px] w-[7px]
+              z-10 h-[6px] w-[6px]
               -translate-x-1/2 -translate-y-1/2
               rounded-full bg-[#F8F6EF]
-              shadow-sm
             "
           />
         </div>
@@ -204,8 +208,8 @@ function Reproductor({
       {/* INFORMACIÓN DE LA CANCIÓN */}
       <h3
         className="
-          font-serif text-[17px]
-          text-[#30392A]
+          font-serif text-[15px]
+          leading-tight text-[#30392A]
           sm:text-[19px]
         "
       >
@@ -214,16 +218,17 @@ function Reproductor({
 
       <p
         className="
-          mt-1 font-serif
-          text-[12px] italic
-          text-[#778069]
+          mt-0.5
+          font-serif text-[11px]
+          italic text-[#778069]
+          sm:text-[12px]
         "
       >
         {ARTISTA}
       </p>
 
       {/* BARRA DE PROGRESO */}
-      <div className="mt-6">
+      <div className="mt-3 sm:mt-5">
         <input
           type="range"
           min="0"
@@ -252,7 +257,7 @@ function Reproductor({
 
         <div
           className="
-            mt-2 flex justify-between
+            mt-1 flex justify-between
             font-serif text-[10px]
             text-[#778069]
           "
@@ -265,8 +270,9 @@ function Reproductor({
       {/* CONTROLES */}
       <div
         className="
-          mt-3 flex items-center
-          justify-center gap-7
+          mt-2 flex items-center
+          justify-center gap-6
+          sm:mt-3 sm:gap-7
         "
       >
         {/* VOLUMEN */}
@@ -277,28 +283,29 @@ function Reproductor({
             silenciado ? "Activar sonido" : "Silenciar música"
           }
           className="
-            flex h-11 w-11
+            flex h-9 w-9
             items-center justify-center
             rounded-full
             text-[#414B32]
             transition hover:bg-[#E5E8DB]
+            sm:h-11 sm:w-11
           "
         >
           {silenciado ? (
-            <VolumeX size={20} strokeWidth={1.5} />
+            <VolumeX size={19} strokeWidth={1.5} />
           ) : (
-            <Volume2 size={20} strokeWidth={1.5} />
+            <Volume2 size={19} strokeWidth={1.5} />
           )}
         </button>
 
-        {/* PLAY: REPRODUCE Y ABRE LA INVITACIÓN */}
+        {/* PLAY */}
         <button
           type="button"
           onClick={onPlay}
           disabled={cargando}
           aria-label="Reproducir música y abrir invitación"
           className="
-            flex h-[58px] w-[58px]
+            flex h-12 w-12
             items-center justify-center
             rounded-full
             bg-[#414B32]
@@ -306,6 +313,7 @@ function Reproductor({
             shadow-md
             transition hover:scale-105
             disabled:opacity-60
+            sm:h-[58px] sm:w-[58px]
           "
         >
           {cargando ? (
@@ -318,16 +326,17 @@ function Reproductor({
               "
             />
           ) : (
-            <Play size={22} fill="currentColor" />
+            <Play size={20} fill="currentColor" />
           )}
         </button>
 
         <div
           aria-hidden="true"
           className="
-            flex h-11 w-11
+            flex h-9 w-9
             items-center justify-center
             text-[#414B32]
+            sm:h-11 sm:w-11
           "
         >
           <Music2 size={19} strokeWidth={1.4} />
@@ -337,7 +346,7 @@ function Reproductor({
       {errorAudio && (
         <p
           role="alert"
-          className="mt-3 text-xs text-[#93483D]"
+          className="mt-2 text-[11px] text-[#93483D]"
         >
           No se pudo reproducir la canción.
           Puedes continuar sin música.
@@ -378,9 +387,7 @@ export default function Musica() {
 
     const actualizarDuracion = () => {
       setDuracion(
-        Number.isFinite(audio.duration)
-          ? audio.duration
-          : 0
+        Number.isFinite(audio.duration) ? audio.duration : 0
       );
     };
 
@@ -420,8 +427,14 @@ export default function Musica() {
 
     return () => {
       audio.removeEventListener("timeupdate", actualizarTiempo);
-      audio.removeEventListener("loadedmetadata", actualizarDuracion);
-      audio.removeEventListener("durationchange", actualizarDuracion);
+      audio.removeEventListener(
+        "loadedmetadata",
+        actualizarDuracion
+      );
+      audio.removeEventListener(
+        "durationchange",
+        actualizarDuracion
+      );
       audio.removeEventListener("playing", alReproducir);
       audio.removeEventListener("pause", alPausar);
       audio.removeEventListener("waiting", alEsperar);
@@ -436,7 +449,6 @@ export default function Musica() {
 
   const iniciarMusica = async () => {
     const audio = audioRef.current;
-
     if (!audio || cargando) return;
 
     try {
@@ -447,7 +459,6 @@ export default function Musica() {
 
       await audio.play();
 
-      // Cualquier Play del modal abre la invitación.
       setMostrarModal(false);
     } catch (error) {
       console.error("Error al reproducir música:", error);
@@ -479,7 +490,6 @@ export default function Musica() {
 
   const alternarReproduccion = async () => {
     const audio = audioRef.current;
-
     if (!audio || cargando) return;
 
     if (!audio.paused) {
@@ -490,7 +500,6 @@ export default function Musica() {
     try {
       setCargando(true);
       setErrorAudio(false);
-
       await audio.play();
     } catch (error) {
       console.error("Error al reproducir música:", error);
@@ -517,14 +526,10 @@ export default function Musica() {
 
   const cambiarProgreso = (event) => {
     const audio = audioRef.current;
-
     if (!audio || duracion <= 0) return;
 
     const porcentaje = Number(event.target.value);
-
-    audio.currentTime =
-      (porcentaje / 100) * duracion;
-
+    audio.currentTime = (porcentaje / 100) * duracion;
     setTiempoActual(audio.currentTime);
   };
 
@@ -539,7 +544,7 @@ export default function Musica() {
       />
 
       {/* ======================================
-          ANIMACIÓN DEL VINILO
+          ESTILOS RESPONSIVOS
       ====================================== */}
 
       <style jsx global>{`
@@ -556,6 +561,41 @@ export default function Musica() {
           animation: wedlyGirarVinilo 9s linear infinite;
           transform-origin: center center;
           will-change: transform;
+        }
+
+        /* Ajustes especiales para teléfonos bajos */
+        @media (max-width: 639px) and (max-height: 740px) {
+          .wedly-modal-contenido {
+            gap: 7px !important;
+          }
+
+          .wedly-modal-contenido .wedly-extra {
+            display: none;
+          }
+
+          .wedly-modal-contenido .wedly-botones {
+            margin-top: 8px;
+            gap: 7px;
+          }
+
+          .wedly-modal-contenido .wedly-botones button {
+            min-height: 39px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+          }
+        }
+
+        @media (max-width: 639px) and (max-height: 600px) {
+          .wedly-modal-contenido .wedly-reproductor {
+            transform: scale(0.88);
+            transform-origin: center center;
+            margin-top: -20px;
+            margin-bottom: -20px;
+          }
+
+          .wedly-modal-contenido .wedly-extra {
+            display: none;
+          }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -580,8 +620,9 @@ export default function Musica() {
               flex items-center justify-center
               overflow-y-auto
               bg-[#25301F]/95
-              px-4 py-5
+              px-4 py-3
               backdrop-blur-md
+              sm:py-5
             "
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -620,14 +661,18 @@ export default function Musica() {
 
             <motion.div
               className="
+                wedly-modal-contenido
                 relative z-10 my-auto
-                flex w-full max-w-[420px]
+                flex w-full max-w-[380px]
                 flex-col items-center
+                gap-2
+                sm:max-w-[420px]
+                sm:gap-0
               "
               initial={{
                 opacity: 0,
-                y: 30,
-                scale: 0.96,
+                y: 25,
+                scale: 0.97,
               }}
               animate={{
                 opacity: 1,
@@ -636,10 +681,10 @@ export default function Musica() {
               }}
               exit={{
                 opacity: 0,
-                y: 20,
+                y: 15,
                 scale: 0.97,
               }}
-              transition={{ duration: 0.55 }}
+              transition={{ duration: 0.5 }}
             >
               {/* CERRAR */}
               <button
@@ -647,38 +692,48 @@ export default function Musica() {
                 onClick={continuarSinMusica}
                 aria-label="Cerrar y continuar sin música"
                 className="
-                  mb-3 ml-auto
-                  flex h-10 w-10
+                  ml-auto
+                  flex h-8 w-8
+                  shrink-0
                   items-center justify-center
                   rounded-full
                   border border-white/35
                   bg-white/10
                   text-white
                   transition hover:bg-white/20
+                  sm:mb-3 sm:h-10 sm:w-10
                 "
               >
-                <X size={19} />
+                <X size={17} />
               </button>
 
               {/* REPRODUCTOR */}
-              <Reproductor
-                reproduciendo={reproduciendo}
-                cargando={cargando}
-                silenciado={silenciado}
-                duracion={duracion}
-                tiempoActual={tiempoActual}
-                errorAudio={errorAudio}
-                onPlay={iniciarMusica}
-                onSilencio={alternarSilencio}
-                onProgreso={cambiarProgreso}
-              />
+              <div className="wedly-reproductor w-full">
+                <Reproductor
+                  reproduciendo={reproduciendo}
+                  cargando={cargando}
+                  silenciado={silenciado}
+                  duracion={duracion}
+                  tiempoActual={tiempoActual}
+                  errorAudio={errorAudio}
+                  onPlay={iniciarMusica}
+                  onSilencio={alternarSilencio}
+                  onProgreso={cambiarProgreso}
+                />
+              </div>
 
-              {/* BOTONES DE ENTRADA */}
+              {/* ======================================
+                  BOTONES DE ENTRADA
+              ====================================== */}
+
               <div
                 className="
-                  mt-5 flex w-full
-                  max-w-[380px]
-                  flex-col gap-3
+                  wedly-botones
+                  mt-2 flex w-full
+                  max-w-[350px]
+                  flex-col gap-2
+                  sm:mt-5 sm:max-w-[380px]
+                  sm:gap-3
                 "
               >
                 <button
@@ -686,19 +741,21 @@ export default function Musica() {
                   onClick={iniciarMusica}
                   disabled={cargando}
                   className="
-                    flex min-h-12 w-full
+                    flex min-h-10 w-full
                     items-center justify-center gap-2
                     rounded-full
                     bg-[#F8F6EF]
-                    px-5 py-3
-                    text-xs font-medium
-                    uppercase tracking-[0.13em]
+                    px-4 py-2
+                    text-[11px] font-medium
+                    uppercase tracking-[0.12em]
                     text-[#414B32]
                     transition hover:bg-white
                     disabled:opacity-60
+                    sm:min-h-12 sm:px-5 sm:py-3
+                    sm:text-xs
                   "
                 >
-                  <Play size={15} fill="currentColor" />
+                  <Play size={14} fill="currentColor" />
                   Entrar con música
                 </button>
 
@@ -706,34 +763,34 @@ export default function Musica() {
                   type="button"
                   onClick={continuarSinMusica}
                   className="
-                    min-h-11 w-full
+                    min-h-10 w-full
                     rounded-full
                     border border-white/45
-                    px-5 py-3
-                    text-xs uppercase
-                    tracking-[0.13em]
+                    px-4 py-2
+                    text-[11px] uppercase
+                    tracking-[0.12em]
                     text-white
                     transition hover:bg-white/10
+                    sm:min-h-11 sm:px-5 sm:py-3
+                    sm:text-xs
                   "
                 >
                   Continuar sin música
                 </button>
               </div>
 
+              {/* FRASE FINAL */}
               <p
                 className="
-                  mt-5 text-center
-                  font-serif text-[12px]
+                  wedly-extra
+                  mt-2 text-center
+                  font-serif text-[11px]
                   italic text-white/80
+                  sm:mt-5 sm:text-[12px]
                 "
               >
                 Que esta historia siempre suene así...
               </p>
-
-              <ChevronDown
-                size={19}
-                className="mt-3 text-white/75"
-              />
             </motion.div>
           </motion.div>
         )}
@@ -776,13 +833,14 @@ export default function Musica() {
                 : "Reproducir música"
             }
             className="
-              flex h-11 w-11
+              flex h-10 w-10
               items-center justify-center
               rounded-full
               bg-[#414B32]
               text-white
               transition hover:scale-105
               disabled:opacity-60
+              sm:h-11 sm:w-11
             "
           >
             {cargando ? (
@@ -811,11 +869,12 @@ export default function Musica() {
                 : "Silenciar música"
             }
             className="
-              flex h-11 w-11
+              flex h-10 w-10
               items-center justify-center
               rounded-full
               text-[#414B32]
               transition hover:bg-[#E6E9DE]
+              sm:h-11 sm:w-11
             "
           >
             {silenciado ? (
