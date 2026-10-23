@@ -172,18 +172,7 @@ export default function Contador({
           DECORACIÓN BOTÁNICA
       ====================================== */}
 
-      <RamaOlivo
-        className="
-          pointer-events-none
-          absolute -bottom-8 -left-12
-          w-[180px]
-          opacity-55
-          sm:-bottom-12 sm:-left-12
-          sm:w-[260px]
-          lg:w-[350px]
-          lg:opacity-75
-        "
-      />
+ 
 
       <RamaOlivo
         invertida

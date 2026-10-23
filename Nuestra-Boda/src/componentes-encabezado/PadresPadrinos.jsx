@@ -319,32 +319,7 @@ export default function Padres() {
         }}
       />
 
-      {/* ESQUINA INFERIOR IZQUIERDA */}
-      <RamaOlivo
-        className="
-          pointer-events-none
-          absolute -bottom-20 -left-16
-          w-[190px]
-          opacity-60
-          sm:w-[280px]
-          lg:w-[350px]
-        "
-      />
-
-      {/* ESQUINA INFERIOR DERECHA */}
-      <RamaOlivo
-        className="
-          pointer-events-none
-          absolute -bottom-20 -right-16
-          w-[190px]
-          opacity-60
-          sm:w-[280px]
-          lg:w-[350px]
-        "
-        style={{
-          transform: "scaleX(-1)",
-        }}
-      />
+      
 
       {/* ======================================
           CONTENIDO
