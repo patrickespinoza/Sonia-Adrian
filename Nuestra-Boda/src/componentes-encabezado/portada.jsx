@@ -51,41 +51,8 @@ export default function Portada() {
           DEGRADADOS SUAVES
       ====================================== */}
 
-      {/* Oscurecimiento general ligero */}
-      <div
-        className="
-          pointer-events-none
-          absolute inset-0
-          bg-black/10
-        "
-      />
-
-      {/* Oscurecimiento localizado a la izquierda */}
-      <div
-        className="
-          pointer-events-none
-          absolute inset-0
-          bg-gradient-to-r
-          from-black/75
-          via-black/30
-          to-transparent
-          sm:from-black/70
-          sm:via-black/20
-        "
-      />
-
-      {/* Degradado superior */}
-      <div
-        className="
-          pointer-events-none
-          absolute inset-x-0 top-0
-          h-[45%]
-          bg-gradient-to-b
-          from-black/55
-          via-black/15
-          to-transparent
-        "
-      />
+      
+    
 
       {/* ======================================
           CONTENIDO SUPERIOR
