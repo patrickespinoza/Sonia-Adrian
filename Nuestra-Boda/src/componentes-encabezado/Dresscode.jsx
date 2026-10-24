@@ -3,11 +3,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Shirt, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 // ==========================================
 // INFORMACIÓN EDITABLE - WEDLY PLUS
 // ==========================================
+
+// Coloca la imagen en la carpeta public
+const IMAGEN_VESTIMENTA = "/dresscode.png";
 
 const textos = {
   subtitulo: "PARA NUESTRO GRAN DÍA",
@@ -15,9 +18,7 @@ const textos = {
   codigo: "Formal Elegante",
   descripcion:
     "Nos encantará contar con tu presencia para compartir juntos esta ocasión tan especial.",
-  avisoTitulo: "Una petición especial",
-  aviso:
-    "Agradecemos reservar el color blanco para la novia y evitarlo en tu vestimenta.",
+  
 };
 
 // ==========================================
@@ -103,23 +104,104 @@ const RamaOlivo = ({ className = "", style = {} }) => (
 
     {/* HOJAS */}
     <g fill="#849276" opacity="0.8">
-      <ellipse cx="23" cy="146" rx="8" ry="21" transform="rotate(-22 23 146)" />
-      <ellipse cx="43" cy="178" rx="7" ry="19" transform="rotate(-50 43 178)" />
-      <ellipse cx="110" cy="145" rx="8" ry="21" transform="rotate(50 110 145)" />
-      <ellipse cx="133" cy="129" rx="7" ry="19" transform="rotate(43 133 129)" />
-      <ellipse cx="69" cy="79" rx="8" ry="21" transform="rotate(-15 69 79)" />
-      <ellipse cx="89" cy="108" rx="7" ry="18" transform="rotate(-45 89 108)" />
-      <ellipse cx="158" cy="77" rx="8" ry="20" transform="rotate(50 158 77)" />
-      <ellipse cx="182" cy="60" rx="7" ry="18" transform="rotate(45 182 60)" />
+      <ellipse
+        cx="23"
+        cy="146"
+        rx="8"
+        ry="21"
+        transform="rotate(-22 23 146)"
+      />
+      <ellipse
+        cx="43"
+        cy="178"
+        rx="7"
+        ry="19"
+        transform="rotate(-50 43 178)"
+      />
+      <ellipse
+        cx="110"
+        cy="145"
+        rx="8"
+        ry="21"
+        transform="rotate(50 110 145)"
+      />
+      <ellipse
+        cx="133"
+        cy="129"
+        rx="7"
+        ry="19"
+        transform="rotate(43 133 129)"
+      />
+      <ellipse
+        cx="69"
+        cy="79"
+        rx="8"
+        ry="21"
+        transform="rotate(-15 69 79)"
+      />
+      <ellipse
+        cx="89"
+        cy="108"
+        rx="7"
+        ry="18"
+        transform="rotate(-45 89 108)"
+      />
+      <ellipse
+        cx="158"
+        cy="77"
+        rx="8"
+        ry="20"
+        transform="rotate(50 158 77)"
+      />
+      <ellipse
+        cx="182"
+        cy="60"
+        rx="7"
+        ry="18"
+        transform="rotate(45 182 60)"
+      />
     </g>
 
     {/* FLOR */}
     <g transform="translate(55 188)">
-      <ellipse cy="-10" rx="6" ry="12" fill="#FFFFFF" />
-      <ellipse cx="10" cy="-2" rx="6" ry="12" transform="rotate(72 10 -2)" fill="#FFFFFF" />
-      <ellipse cx="6" cy="10" rx="6" ry="12" transform="rotate(144 6 10)" fill="#FFFFFF" />
-      <ellipse cx="-7" cy="9" rx="6" ry="12" transform="rotate(216 -7 9)" fill="#FFFFFF" />
-      <ellipse cx="-11" cy="-3" rx="6" ry="12" transform="rotate(288 -11 -3)" fill="#FFFFFF" />
+      <ellipse
+        cy="-10"
+        rx="6"
+        ry="12"
+        fill="#FFFFFF"
+      />
+      <ellipse
+        cx="10"
+        cy="-2"
+        rx="6"
+        ry="12"
+        transform="rotate(72 10 -2)"
+        fill="#FFFFFF"
+      />
+      <ellipse
+        cx="6"
+        cy="10"
+        rx="6"
+        ry="12"
+        transform="rotate(144 6 10)"
+        fill="#FFFFFF"
+      />
+      <ellipse
+        cx="-7"
+        cy="9"
+        rx="6"
+        ry="12"
+        transform="rotate(216 -7 9)"
+        fill="#FFFFFF"
+      />
+      <ellipse
+        cx="-11"
+        cy="-3"
+        rx="6"
+        ry="12"
+        transform="rotate(288 -11 -3)"
+        fill="#FFFFFF"
+      />
       <circle r="4" fill="#D4C49A" />
     </g>
   </svg>
@@ -144,10 +226,7 @@ export default function Vestimenta() {
         lg:py-32
       "
     >
-      {/* ======================================
-          TEXTURA DE FONDO
-      ====================================== */}
-
+      {/* TEXTURA DE FONDO */}
       <div
         aria-hidden="true"
         className="
@@ -162,10 +241,7 @@ export default function Vestimenta() {
         }}
       />
 
-      {/* ======================================
-          RAMAS EXTERIORES
-      ====================================== */}
-
+      {/* RAMAS EXTERIORES */}
       <RamaOlivo
         className="
           pointer-events-none
@@ -188,10 +264,7 @@ export default function Vestimenta() {
         style={{ transform: "scaleX(-1)" }}
       />
 
-      {/* ======================================
-          TARJETA CLÁSICA
-      ====================================== */}
-
+      {/* TARJETA CLÁSICA */}
       <motion.div
         initial="oculto"
         whileInView="visible"
@@ -221,10 +294,7 @@ export default function Vestimenta() {
           "
         />
 
-        {/* ======================================
-            ENCABEZADO
-        ====================================== */}
-
+        {/* ENCABEZADO */}
         <motion.p
           variants={aparecer}
           className="
@@ -264,41 +334,7 @@ export default function Vestimenta() {
           <Ornamento />
         </motion.div>
 
-        {/* ======================================
-            ÍCONO DECORATIVO
-        ====================================== */}
-
-        <motion.div
-          variants={aparecer}
-          className="
-            relative z-10
-            mx-auto mb-7
-            flex h-[92px] w-[92px]
-            items-center justify-center
-            rounded-full
-            border border-[#9EAA91]/45
-            bg-[#EDF0E6]
-          "
-        >
-          <div
-            className="
-              absolute inset-[7px]
-              rounded-full
-              border border-[#9EAA91]/35
-            "
-          />
-
-          <Shirt
-            size={42}
-            strokeWidth={1}
-            className="text-[#414B32]"
-          />
-        </motion.div>
-
-        {/* ======================================
-            CÓDIGO DE VESTIMENTA
-        ====================================== */}
-
+        {/* CÓDIGO DE VESTIMENTA */}
         <motion.h3
           variants={aparecer}
           className="
@@ -328,6 +364,30 @@ export default function Vestimenta() {
         >
           {textos.descripcion}
         </motion.p>
+
+        {/* ======================================
+            IMAGEN DE REFERENCIA DE VESTIMENTA
+        ====================================== */}
+
+        <motion.div
+          variants={aparecer}
+          className="
+            relative z-10
+            mx-auto mt-10
+            w-full max-w-[540px]
+            sm:mt-14
+          "
+        >
+          <img
+            src={IMAGEN_VESTIMENTA}
+            alt="Referencia de código de vestimenta: mujeres de largo y hombres de traje"
+            loading="lazy"
+            className="
+              block h-auto w-full
+              object-contain
+            "
+          />
+        </motion.div>
 
         {/* ======================================
             AVISO SOBRE EL COLOR BLANCO
@@ -383,10 +443,7 @@ export default function Vestimenta() {
           </p>
         </motion.div>
 
-        {/* ======================================
-            DETALLE FINAL
-        ====================================== */}
-
+        {/* DETALLE FINAL */}
         <motion.div
           variants={aparecer}
           className="
@@ -396,6 +453,7 @@ export default function Vestimenta() {
           "
         >
           <span className="h-px w-10 bg-[#A6AE99]/70" />
+
           <span
             className="
               font-cormorant
@@ -406,6 +464,7 @@ export default function Vestimenta() {
           >
             S &amp; A
           </span>
+
           <span className="h-px w-10 bg-[#A6AE99]/70" />
         </motion.div>
       </motion.div>
